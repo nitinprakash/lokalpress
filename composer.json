@@ -1,0 +1,74 @@
+{
+  "name": "nitinprakash/wpdev-env",
+  "description": "Wordpress Developer Environment",
+  "type": "project",
+  "license": "proprietary",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Nitin Prakash",
+      "email": "nitinwebsiteexpert@gmail.com"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "vendor-dir": ".composer-vendor",
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    },
+    {
+      "type": "vcs",
+      "url": "https://bitbucket.org/neebplugins/wc-thanks-redirect-pro"
+    }
+  ],
+  "require": {
+    "composer/installers": "*",
+    "wpackagist-plugin/duplicate-page": "*",
+    "wpackagist-plugin/wps-hide-login": "*",
+    "wpackagist-plugin/advanced-cron-manager": "*",
+    "wpackagist-plugin/pexlechris-adminer": "^2.2.2",
+    "wpackagist-plugin/woocommerce": "*",
+    "wpackagist-plugin/polylang": "*",
+    "wpackagist-theme/twentytwentyfive": "*",
+    "neebplugins/wc-thanks-redirect-pro": "dev-development"
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/duplicate-page/": [
+        "wpackagist-plugin/duplicate-page"
+      ],
+      "wp-content/plugins/wps-hide-login/": [
+        "wpackagist-plugin/wps-hide-login"
+      ],
+      "wp-content/plugins/advanced-cron-manager/": [
+        "wpackagist-plugin/advanced-cron-manager"
+      ],
+      "wp-content/plugins/pexlechris-adminer/": [
+        "wpackagist-plugin/pexlechris-adminer"
+      ],
+      "wp-content/plugins/woocommerce/": [
+        "wpackagist-plugin/woocommerce"
+      ],
+      "wp-content/plugins/polylang/": [
+        "wpackagist-plugin/polylang"
+      ],
+      "wp-content/plugins/wc-thanks-redirect-pro/": [
+        "neebplugins/wc-thanks-redirect-pro"
+      ],
+      "wp-content/themes/twentytwentyfive/": [
+        "wpackagist-theme/twentytwentyfive"
+      ]
+    }
+  }
+}
