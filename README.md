@@ -10,7 +10,7 @@
 | --- | --- |
 | Default Admin Username | admin |
 | Default Admin Password | nimad |
-| Local Site URL | Set during installation (e.g., lokalpress.test) |
+| Local Site URL | Auto generated during installation (e.g., lokalpress.lndo.site) |
 | Web Server | Apache (default for reliability) |
 | Database | MariaDB 10.11 |
 | Start Environment | lando start |
