@@ -52,8 +52,6 @@
     
 *   Configurable database credentials
     
-*   Choice of local site URLs: `.test`, `.local`, `.code`, `.localhost`, or `.site`
-    
 *   Composer integration for PHP dependencies
     
 *   Optional database import via `db.sql`
@@ -108,9 +106,7 @@ The script will guide you through inputting your site details and database crede
 
 ## Setup Walkthrough
 
-1.  **Enter Site Details**
-    
-    *   Site URL must end with `.test`, `.local`, `.code`, `.localhost`, or `.site`.
+1.  **Enter Site Details**    
         
     *   Site Title: friendly name for your WordPress site.
         
