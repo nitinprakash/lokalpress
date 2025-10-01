@@ -1,0 +1,97 @@
+{
+  "name": "nitinprakash/lokalpress",
+  "description": "A local development environment setup for WordPress and WooCommerce developers.",
+  "type": "project",
+  "license": "MIT",
+  "keywords": [
+    "wordpress",
+    "woocommerce",
+    "development",
+    "local-environment",
+    "composer",
+    "wpackagist"
+  ],
+  "homepage": "https://github.com/nitinprakash/lokalpress",
+  "support": {
+    "issues": "https://github.com/nitinprakash/lokalpress/issues",
+    "source": "https://github.com/nitinprakash/lokalpress",
+    "docs": "https://github.com/nitinprakash/lokalpress#readme"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/nitinprakash"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Nitin Prakash",
+      "email": "nitinwebsiteexpert@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "vendor-dir": ".composer-vendor",
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
+    }
+  ],
+  "require": {
+    "composer/installers": "^2.2",
+    "wpackagist-plugin/duplicate-page": "*",
+    "wpackagist-plugin/wps-hide-login": "*",
+    "wpackagist-plugin/advanced-cron-manager": "*",
+    "wpackagist-plugin/pexlechris-adminer": "^2.2.2",
+    "wpackagist-plugin/woocommerce": "*",
+    "wpackagist-plugin/polylang": "*",
+    "wpackagist-theme/twentytwentyfive": "*",
+    "wpackagist-theme/storefront": "*",
+    "wpackagist-theme/blocksy": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/plugins/duplicate-page/": [
+        "wpackagist-plugin/duplicate-page"
+      ],
+      "wp-content/plugins/wps-hide-login/": [
+        "wpackagist-plugin/wps-hide-login"
+      ],
+      "wp-content/plugins/advanced-cron-manager/": [
+        "wpackagist-plugin/advanced-cron-manager"
+      ],
+      "wp-content/plugins/pexlechris-adminer/": [
+        "wpackagist-plugin/pexlechris-adminer"
+      ],
+      "wp-content/plugins/woocommerce/": [
+        "wpackagist-plugin/woocommerce"
+      ],
+      "wp-content/plugins/polylang/": [
+        "wpackagist-plugin/polylang"
+      ],
+      "wp-content/themes/twentytwentyfive/": [
+        "wpackagist-theme/twentytwentyfive"
+      ],
+      "wp-content/themes/storefront/": [
+        "wpackagist-theme/storefront"
+      ],
+      "wp-content/themes/blocksy/": [
+        "wpackagist-theme/blocksy"
+      ]
+    }
+  }
+}
+
