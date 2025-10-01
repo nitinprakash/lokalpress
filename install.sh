@@ -47,20 +47,38 @@ if ! lando version >/dev/null 2>&1; then
   read -p "➡️  Ensure Lando is installed & working, then press Enter..."
 fi
 
-# URL input + validation
+# Input loop until confirmation
 while true; do
-  read -p "Enter site URL (e.g., lokalpress.test): " SITE_URL
-  [[ "$SITE_URL" =~ ^[a-zA-Z0-9.-]+\.(test|local|code|localhost|site)$ ]] && break
-  echo "❌ Invalid URL. Must end with .test, .local, .code, localhost or site"
+  # URL input + validation
+  while true; do
+    read -p "Enter site URL (e.g., lokalpress.test): " SITE_URL
+    [[ "$SITE_URL" =~ ^[a-zA-Z0-9.-]+\.(test|local|code|localhost|site)$ ]] && break
+    echo "❌ Invalid URL. Must end with .test, .local, .code, localhost or .site"
+  done
+
+  read -p "Enter Site Title: " SITE_TITLE
+  read -p "Enter DB Name: " DB_NAME
+  read -p "Enter DB User: " DB_USER
+  read -sp "Enter DB Pass: " DB_PASS; echo ""
+
+  DB_HOST="database"
+  APP_NAME=$(echo "${SITE_TITLE}" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr '.' '-')
+
+  echo ""
+  echo "=========================================="
+  echo "Please confirm your details:"
+  echo "Site URL:   ${SITE_URL}"
+  echo "Site Title: ${SITE_TITLE}"
+  echo "DB Name:    ${DB_NAME}"
+  echo "DB User:    ${DB_USER}"
+  echo "DB Pass:    ${DB_PASS}"
+  echo "App Name:   lokalpress-${APP_NAME}"
+  echo "=========================================="
+  read -p "Are these correct? (y/n): " CONFIRM
+
+  [[ "$CONFIRM" == "y" ]] && break
+  echo "🔄 Let's try again..."
 done
-
-read -p "Enter Site Title: " SITE_TITLE
-read -p "Enter DB Name: " DB_NAME
-read -p "Enter DB User: " DB_USER
-read -sp "Enter DB Pass: " DB_PASS; echo ""
-
-DB_HOST="database"
-APP_NAME=$(echo "${SITE_TITLE}" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr '.' '-')
 
 # Generate .lando.yml
 cat > .lando.yml <<EOL
@@ -69,17 +87,17 @@ recipe: wordpress
 config:
   webroot: .
   php: '8.2'
-  via: nginx
+  via: apache
   database: mariadb
 services:
   database:
-    type: mariadb
+    type: mariadb:10.11
     creds:
       user: $DB_USER
       password: $DB_PASS
       database: $DB_NAME
 proxy:
-  appserver_nginx:
+  appserver:
     - ${SITE_URL}
 tooling:
   composer:
