@@ -4,7 +4,7 @@ echo "🚀 Welcome to LokalPress Lite Installer"
 echo "=========================================="
 echo ""
 echo "This script will help you quickly set up a local WordPress environment using Lando."
-echo "You will provide site details and database credentials, and we will configure everything automatically."
+echo "You will provide a site title and database credentials, and we will configure everything automatically."
 echo ""
 
 # Detect OS for install guidance
@@ -55,20 +55,10 @@ fi
 
 echo ""
 echo "Let's gather some information to configure your local site."
-echo "You will be asked for the site URL, site title, and database credentials."
 echo ""
 
 # Input loop with confirmation
 while true; do
-  # URL input with validation
-  while true; do
-    read -p "Enter the site URL (e.g., lokalpress.test): " SITE_URL
-    if [[ "$SITE_URL" =~ ^[a-zA-Z0-9.-]+\.(test|local|code|localhost|site)$ ]]; then
-      break
-    fi
-    echo "❌ Invalid URL. Please use a domain ending with .test, .local, .code, .localhost, or .site"
-  done
-
   read -p "Enter the Site Title: " SITE_TITLE
   read -p "Enter the Database Name: " DB_NAME
   read -p "Enter the Database User: " DB_USER
@@ -76,18 +66,22 @@ while true; do
   echo ""
 
   DB_HOST="database"
-  APP_NAME=$(echo "${SITE_TITLE}" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr '.' '-')
+
+  # Generate safe app + site name
+  APP_NAME=$(echo "${SITE_TITLE}" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]' | cut -c1-8)
+  APP_FULL="lokalpress-${APP_NAME}"
+  SITE_URL="${APP_NAME}.lndo.site"
 
   # Display summary for confirmation
   echo ""
   echo "=========================================="
   echo "Please review your configuration:"
-  echo "Site URL:      ${SITE_URL}"
   echo "Site Title:    ${SITE_TITLE}"
   echo "Database Name: ${DB_NAME}"
   echo "Database User: ${DB_USER}"
   echo "Database Pass: ${DB_PASS}"
-  echo "App Name:      lokalpress-${APP_NAME}"
+  echo "App Name:      ${APP_FULL}"
+  echo "Site URL:      http://${SITE_URL}"
   echo "=========================================="
   read -p "Are all details correct? (y/n): " CONFIRM
 
@@ -100,7 +94,7 @@ echo "📄 Generating Lando configuration file (.lando.yml)..."
 
 # Generate .lando.yml
 cat > .lando.yml <<EOL
-name: lokalpress-${APP_NAME}
+name: ${APP_FULL}
 recipe: wordpress
 config:
   webroot: .
@@ -172,6 +166,5 @@ echo "✅ LokalPress Lite setup is complete!"
 echo "You can access your site at: http://${SITE_URL}"
 echo "Login to WordPress admin at: http://${SITE_URL}/wp-admin"
 echo "Username: admin | Password: nimad"
-echo "App name: lokalpress-${APP_NAME}"
-echo "⚠️ Don't forget to add '${SITE_URL}' to your hosts file if required."
+echo "App name: ${APP_FULL}"
 echo "=========================================="
