@@ -90,8 +90,8 @@ Ensure your machine has:
 ## Installation Instructions
 
 1.  Clone the repository:  
-    git clone [https://github.com/](https://github.com/)<your-username>/lokalpress-lite.git  
-    cd lokalpress-lite
+    git clone [https://github.com/nitinprakash/lokalpress.git](https://github.com/nitinprakash/lokalpress.git)  
+    cd lokalpress
     
 2.  Make the installer executable:  
     chmod +x install.sh
