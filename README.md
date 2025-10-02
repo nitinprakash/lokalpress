@@ -131,8 +131,18 @@ The script will guide you through inputting your site details and database crede
     *   Apache is used as the web server.
         
     *   MariaDB 10.11 is used as the database service.
+  
+5. **Composer Setup (Optional but Recommended)**
+
+* If the repository includes a `composer.json`, the installer will ask if you want to install dependencies via Composer.
+
+* This ensures all required PHP packages are available for your WordPress environment.
+
+* Run manually if needed:
+
+    lando composer install
         
-5.  **Start Lando Environment**
+6.  **Start Lando Environment**
     
     *   WordPress installed with default credentials:  
         Username: `admin`  
