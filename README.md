@@ -1,4 +1,4 @@
-# LokalPress Lite
+# LokalPress Lite ( Linux )
 
 🚀 **LokalPress Lite** is a lightweight, automated local WordPress development environment powered by **Lando** and **Docker**. It allows developers to quickly spin up a fully functional WordPress site without manual server configuration.
 
@@ -68,10 +68,6 @@ Designed to **save time**, reduce setup errors, and let developers focus on **bu
 Ensure your machine has:
 
 1.  **Docker** – Required to run local containers.
-    
-    *   macOS: [Docker Desktop](https://docs.docker.com/desktop/install/mac/)
-        
-    *   Windows: [Docker Desktop](https://docs.docker.com/desktop/install/windows/)
         
     *   Ubuntu:  
         sudo apt update  
