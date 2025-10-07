@@ -5,7 +5,9 @@ echo "=========================================="
 echo ""
 echo "This script sets up a local WordPress environment using Lando."
 echo "You will provide a site title and database credentials, and we will configure everything automatically."
-echo "Compatible with Linux, macOS, and Windows (via Git Bash or WSL)."
+echo "Compatible with Linux and Windows (via Git Bash or WSL)."
+echo ""
+echo "Not tested with MacOS yet!"
 echo ""
 
 # ------------------------------------------
