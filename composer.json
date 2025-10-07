@@ -55,7 +55,7 @@
     "wpackagist-plugin/duplicate-page": "*",
     "wpackagist-plugin/wps-hide-login": "*",
     "wpackagist-plugin/advanced-cron-manager": "*",
-    "wpackagist-plugin/pexlechris-adminer": "^2.2.2",
+    "wpackagist-plugin/pexlechris-adminer": "*",
     "wpackagist-plugin/woocommerce": "*",
     "wpackagist-plugin/polylang": "*",
     "wpackagist-theme/twentytwentyfive": "*",
