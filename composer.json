@@ -1,7 +1,7 @@
 {
   "name": "nitinprakash/lokalpress",
   "description": "A local development environment setup for WordPress and WooCommerce developers.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "project",
   "license": "MIT",
   "keywords": [
