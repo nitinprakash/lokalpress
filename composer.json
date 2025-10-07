@@ -1,6 +1,7 @@
 {
   "name": "nitinprakash/lokalpress",
   "description": "A local development environment setup for WordPress and WooCommerce developers.",
+  "version": "1.0.1",
   "type": "project",
   "license": "MIT",
   "keywords": [
@@ -55,7 +56,7 @@
     "wpackagist-plugin/duplicate-page": "*",
     "wpackagist-plugin/wps-hide-login": "*",
     "wpackagist-plugin/advanced-cron-manager": "*",
-    "wpackagist-plugin/pexlechris-adminer": "^2.2.2",
+    "wpackagist-plugin/pexlechris-adminer": "*",
     "wpackagist-plugin/woocommerce": "*",
     "wpackagist-plugin/polylang": "*",
     "wpackagist-theme/twentytwentyfive": "*",
